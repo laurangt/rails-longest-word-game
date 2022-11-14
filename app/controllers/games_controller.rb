@@ -33,8 +33,7 @@ class GamesController < ApplicationController
 
   def english_word?
     url = "https://wagon-dictionary.herokuapp.com/#{@word}"
-    dictionary_lewagon = URI.open(url).read
-    dictionary = JSON.parse(dictionary_lewagon)
-    dictionary[:found] == 'true'
+    dictionary = JSON.parse(URI.open(url).read)
+    dictionary['found']
   end
 end
