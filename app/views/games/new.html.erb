@@ -1,0 +1,12 @@
+<h1 class="m-4">New Game</h1>
+  <p class="m-4"><% @letters.each do |letter| %>
+    <%= letter %>
+  <% end %>
+  </p>
+<p class="m-4">What is the longest word you can find?</p>
+<form action="/score" method="post" data-turbo="false" class="m-4">
+  <input type="text" name="word" placeholde="enter your word" value=<% params[:word] %>>
+  <input type="submit" value="Play">
+  <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+</form>
+
